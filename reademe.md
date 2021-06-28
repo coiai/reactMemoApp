@@ -23,6 +23,29 @@ src
     /screens
     /components
 
+##ESLint について
+最新バージョンの確認
+$npm show eslint
+
+--save-dev のオプションはdevDependenciesという意味
+これで開発用の依存関係があるよという意味になり
+package.jsonのdevDependenciesのところに追加される
+$npm install --save-dev eslint@7.29.0
+
+ESLintの初期化
+コーディングルールを聞かれるよ　AirBnbのコーディングルール気になる
+$npx eslint --init
+
+.js でeslistのJSXの警告がある場合は .jsx にすることが可能
+
+ルールも変えられる
+.eslintrc.json に例えば以下を記述すると順番的に定義前に関数を使っても警告が出て来なくなる
+    "rules": {
+        "no-use-before-define": 0
+    }
+下記一行だけESLint無視する記述もできる
+{/* eslint-disable-next-line */}
+
 ##小技
 空のファイルをGit管理するために
 .gitkeep
