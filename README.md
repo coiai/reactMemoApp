@@ -79,6 +79,10 @@ number > 2 ? "Big":"small"
 
 ## コンポーネントのスタイルの上書き
 
+## status bar
+<StatusBar style="dark">
+でIOSのステータスバー（電池残量とかの場所）の色が変わる
+
 ## 小技
 空のファイルをGit管理するために
 .gitkeep
