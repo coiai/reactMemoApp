@@ -1,12 +1,12 @@
-#expo 0から始めるメモ
+# expo 0から始めるメモ
 
 $expo init
 $expo start
 $expo publish
 package.json に "privacy": "unlisted" にするとリストに公開されないようになるらしい
 
-##ファイル構成について
-###もともとあるフォルダ
+## ファイル構成について
+### もともとあるフォルダ
 .expo
 .expo-shared は触らない
 assests 画像が入っている
@@ -18,12 +18,12 @@ app.json アプリの設定ファイル　リリースの時に必要
 babel.config.js 最初はあまり触らない
 packageーlock.json 基本触らない依存関係の依存関係みたいな感じ
 
-###自分で作る開発用のフォルダ
+### 自分で作る開発用のフォルダ
 src
     /screens
     /components
 
-##ESLint について
+## ESLint について
 最新バージョンの確認
 $npm show eslint
 
@@ -46,7 +46,7 @@ $npx eslint --init
 下記一行だけESLint無視する記述もできる
 {/* eslint-disable-next-line */}
 
-##コンポーネントの基本
+## コンポーネントの基本
 expor default function の中にJSの関数を書いていき
 return の中がページとして出力する
 Reactでは指定してないとdisplay:flex がデフォルト　また基本的に横並びでなく縦並びのflexになる
@@ -56,21 +56,27 @@ react native はIOSやAndroidのコードをまとめて React Native Components
 
 コンポーネントはアプリを構成する小さな要素のようなもの
 
-##自分でコンポーネントを作る
+## 自分でコンポーネントを作る
 試しに Hello.jsx を作った
 App.js で読み込む際は import して <Hello /> という書き方をした
 
 jsxでオブジェクトを扱う場合は{}で囲う
 
-##propsについて
+## propsについて
 propsはpropaties の略語
 親のコンポーネントを受け取る
 
-##proptypes
+## proptypes
 $npm show prop-types
 $npm install prop-types@15.7.2 
 受け取ったpropsはなんなのかの記述のために使う
+またpropsでは指定をしないとbooleanのtrueとなる
 
-##小技
+## 三項演算子
+number > 2 ? "Big":"small"
+この時trueであればBig false であればsmallが返ってくる
+ちなみにJSでは10はtrue,0はfalseとして処理される
+
+## 小技
 空のファイルをGit管理するために
 .gitkeep
