@@ -77,6 +77,8 @@ number > 2 ? "Big":"small"
 この時trueであればBig false であればsmallが返ってくる
 ちなみにJSでは10はtrue,0はfalseとして処理される
 
+## コンポーネントのスタイルの上書き
+
 ## 小技
 空のファイルをGit管理するために
 .gitkeep

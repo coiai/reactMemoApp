@@ -7,6 +7,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       <Hello bang>World</Hello>
+      <Hello bang={false} style={{ fontSize: 16 }}>small world</Hello>
       <Text>Open up App.js to start working on your app!</Text>
       {/* eslint-disable-next-line */}
       <StatusBar style="auto" />
