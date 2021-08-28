@@ -46,6 +46,8 @@ $npx eslint --init
 下記一行だけESLint無視する記述もできる
 {/* eslint-disable-next-line */}
 
+インデントの標準は 2
+
 ## コンポーネントの基本
 expor default function の中にJSの関数を書いていき
 return の中がページとして出力する
@@ -82,6 +84,16 @@ number > 2 ? "Big":"small"
 ## status bar
 <StatusBar style="dark">
 でIOSのステータスバー（電池残量とかの場所）の色が変わる
+
+## UIのスタイリングのヒント
+### 影
+shadow は iOS 飲みなので、
+android で影をつけるときは elevation の設定が必要になる。
+これは material design で解説されている。
+
+### スタイルの管理
+ファイルを切り分けて見やすく作っていく。
+export default で関数を切り分けて外部で使うことができる。
 
 ## 小技
 空のファイルをGit管理するために
