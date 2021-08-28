@@ -2,6 +2,7 @@ import React from 'react';
 import {
   View, Text, TextInput, ScrollView, KeyboardAvoidingView, StyleSheet,
 } from 'react-native';
+import { AntDesign } from '@expo/vector-icons';
 
 import AppBar from '../components/AppBar';
 import CircleButton from '../components/CircleButton';
@@ -19,7 +20,8 @@ export default function MemoDetailScreen() {
           <TextInput value="買い物リスト" multiline style={styles.contentBox__text} />
         </View>
       </ScrollView>
-      <CircleButton>✏️</CircleButton>
+      <CircleButton><AntDesign name="check" size={24} color="black" />import {AntDesign} from '@expo/vector-icons';
+      </CircleButton>
     </KeyboardAvoidingView>
   );
 }

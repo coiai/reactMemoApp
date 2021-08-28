@@ -98,3 +98,6 @@ export default で関数を切り分けて外部で使うことができる。
 ## 小技
 空のファイルをGit管理するために
 .gitkeep
+
+reactでアイコンを読み込む
+npm install  @expo/vector-icons

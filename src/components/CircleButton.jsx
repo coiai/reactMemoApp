@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import { shape, string } from 'prop-types';
+import { oneOfType, shape, string } from 'prop-types';
 
 export default function CircleButton(props) {
   const { children, style } = props;
@@ -12,7 +12,10 @@ export default function CircleButton(props) {
 }
 
 CircleButton.propTypes = {
-  children: string.isRequired,
+  children: oneOfType([
+    string,
+    shape(),
+  ]).isRequired,
   style: shape(),
 };
 
