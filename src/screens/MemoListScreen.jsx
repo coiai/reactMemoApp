@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, Alert } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
 
 import AppBar from '../components/AppBar';
@@ -12,7 +12,7 @@ export default function MemoListScreen() {
       <AppBar />
       <MemoList />
       <CircleButton><AntDesign name="plus" size={24} color="#1E1E1F" /></CircleButton>
-    </View>
+    </View >
   );
 }
 

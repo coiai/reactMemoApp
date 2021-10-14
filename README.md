@@ -95,6 +95,20 @@ android で影をつけるときは elevation の設定が必要になる。
 ファイルを切り分けて見やすく作っていく。
 export default で関数を切り分けて外部で使うことができる。
 
+## インタラクティブにする
+### ユーザーのアクションを受け取る
+#### TouchableOpacity
+Viewにインタラクションにするもの
+https://reactnative.dev/docs/touchableopacity
+
+#### onPress
+押した時にの設定はいかのOnPressを使う
+コンポーネント側に以下を仕込む
+onPress: func,
+コンポーネントのプロップスは以下のように書いてみる
+onPress={() => { Alert.alert('おされたよ！'); }
+https://reactnative.dev/docs/touchablewithoutfeedback
+
 ## 小技
 空のファイルをGit管理するために
 .gitkeep

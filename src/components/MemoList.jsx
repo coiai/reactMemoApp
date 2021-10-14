@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 
 export default function MemoList() {
   return (
@@ -9,27 +9,9 @@ export default function MemoList() {
           <Text style={styles.list__text}>買い物リスト</Text>
           <Text style={styles.list__date}>2021年6月30日</Text>
         </View>
-        <View style={styles.list__trash}>
+        <TouchableOpacity style={styles.list__trash}>
           <Text>🗑</Text>
-        </View>
-      </View>
-      <View style={styles.list__item}>
-        <View style={styles.list__contentBox}>
-          <Text style={styles.list__text}>買い物リスト</Text>
-          <Text style={styles.list__date}>2021年6月30日</Text>
-        </View>
-        <View style={styles.list__trash}>
-          <Text>🗑</Text>
-        </View>
-      </View>
-      <View style={styles.list__item}>
-        <View style={styles.list__contentBox}>
-          <Text style={styles.list__text}>買い物リスト</Text>
-          <Text style={styles.list__date}>2021年6月30日</Text>
-        </View>
-        <View style={styles.list__trash}>
-          <Text>🗑</Text>
-        </View>
+        </TouchableOpacity>
       </View>
     </View>
   );

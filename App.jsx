@@ -6,8 +6,8 @@ import LoginScreen from './src/screens/LoginScreen';
 
 export default function App() {
   return (
-    // <MemoListScreen />
+    <MemoListScreen />
     // <MemoDetailScreen />
-    <LoginScreen />
+    // <LoginScreen />
   );
 }

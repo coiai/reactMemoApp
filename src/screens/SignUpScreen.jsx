@@ -1,12 +1,12 @@
 import React from 'react';
 import {
-  View, Text, TextInput, KeyboardAvoidingView, StyleSheet,
+  View, Text, TextInput, KeyboardAvoidingView, StyleSheet, TouchableOpacity
 } from 'react-native';
 
 import AppBar from '../components/AppBar';
 import Button from '../components/Button';
 
-export default function LoginScreen() {
+export default function SifnUpScreen() {
   return (
     <KeyboardAvoidingView style={styles.container}>
       <AppBar />
@@ -19,7 +19,9 @@ export default function LoginScreen() {
         </View>
         <View style={styles.footerLink}>
           <Text style={styles.subText}> アカウントをお持ちの方は</Text>
-          <Text style={[styles.subText, styles.link]}> こちら</Text>
+          <TouchableOpacity>
+            <Text style={[styles.subText, styles.link]}> こちら</Text>
+          </TouchableOpacity>
         </View>
       </View>
     </KeyboardAvoidingView>
