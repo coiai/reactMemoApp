@@ -109,6 +109,13 @@ onPress: func,
 onPress={() => { Alert.alert('おされたよ！'); }
 https://reactnative.dev/docs/touchablewithoutfeedback
 
+## React Nvigation
+基本的に下記の公式ドキュメントにやり方が全部書いてある
+https://reactnavigation.org/docs/getting-started/
+$npm install @react-navigation/natives
+$expo install react-native-screens react-native-safe-area-context
+$npm install @react-navigation/native-stack
+
 ## 小技
 空のファイルをGit管理するために
 .gitkeep
