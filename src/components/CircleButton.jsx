@@ -2,6 +2,7 @@ import React from 'react';
 import { Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { func, oneOfType, shape, string } from 'prop-types';
 
+// eslint-disable-next-line react/function-component-definition
 export default function CircleButton(props) {
   const { children, onPress, style } = props;
   return (

@@ -3,23 +3,38 @@ import {
   View, Text, TextInput, KeyboardAvoidingView, StyleSheet, TouchableOpacity
 } from 'react-native';
 
-import AppBar from '../components/AppBar';
 import Button from '../components/Button';
 
-export default function SifnUpScreen() {
+export default function SifnUpScreen(props) {
+  const { navigation } = props;
   return (
     <KeyboardAvoidingView style={styles.container}>
-      <AppBar />
       <View style={styles.main}>
         <Text style={styles.title}>アカウント登録</Text>
         <TextInput style={styles.input} value="メールアドレス" />
         <TextInput style={styles.input} value="パスワード" />
-        <View style={styles.button_position}>
-          <Button>とうろく</Button>
+        <View style={styles.button_position} onPress={() => { navigation.navigate('Login'); }}>
+          <Button
+            onPress={() => {
+              navigation.reset({
+                index: 0,
+                routes: [{ name: 'MemoList' }],
+              });
+            }}
+          >
+            とうろく
+          </Button>
         </View>
         <View style={styles.footerLink}>
           <Text style={styles.subText}> アカウントをお持ちの方は</Text>
-          <TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => {
+              navigation.reset({
+                index: 0,
+                routes: [{ name: 'Login' }],
+              });
+            }}
+          >
             <Text style={[styles.subText, styles.link]}> こちら</Text>
           </TouchableOpacity>
         </View>

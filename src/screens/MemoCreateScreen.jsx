@@ -4,23 +4,22 @@ import {
 } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
 
-import AppBar from '../components/AppBar';
 import CircleButton from '../components/CircleButton';
 
 export default function MemoDetailScreen() {
   return (
     <KeyboardAvoidingView behavior="hight" style={styles.container}>
-      <AppBar />
       <ScrollView>
         <View style={styles.titleBox}>
-          <TextInput multiline value="買い物リスト買い物リスト買い物リスト買い物リスト" style={styles.titleBox__title} />
+          <TextInput multiline value="追加" style={styles.titleBox__title} />
           <Text style={styles.titleBox__time}>2020/08/28</Text>
         </View>
         <View style={styles.contentBox}>
           <TextInput value="買い物リスト" multiline style={styles.contentBox__text} />
         </View>
       </ScrollView>
-      <CircleButton><AntDesign name="check" size={24} color="black" />import {AntDesign} from '@expo/vector-icons';
+      <CircleButton>
+        <AntDesign name="check" size={24} color="black" />
       </CircleButton>
     </KeyboardAvoidingView>
   );

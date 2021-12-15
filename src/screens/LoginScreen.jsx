@@ -3,23 +3,40 @@ import {
   View, Text, TextInput, KeyboardAvoidingView, StyleSheet, TouchableOpacity
 } from 'react-native';
 
-import AppBar from '../components/AppBar';
 import Button from '../components/Button';
 
-export default function LoginScreen() {
+export default function LoginScreen(props) {
+  const { navigation } = props;
   return (
     <KeyboardAvoidingView style={styles.container}>
-      <AppBar />
       <View style={styles.main}>
         <Text style={styles.title}>ログイン</Text>
         <TextInput style={styles.input} value="メールアドレス" />
         <TextInput style={styles.input} value="パスワード" />
         <View style={styles.button_position}>
-          <Button>ログイン</Button>
+          <Button
+            // 以下の書き方で履歴をリセットする
+            // 履歴の上書きを起こしている
+            onPress={() => {
+              navigation.reset({
+                index: 0,
+                routes: [{ name: 'MemoList' }],
+              });
+            }}
+          >
+            ログイン
+          </Button>
         </View>
         <View style={styles.footerLink}>
           <Text style={styles.subText}> 登録していなかたはこちら</Text>
-          <TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => {
+              navigation.reset({
+                index: 0,
+                routes: [{ name: 'SignUp' }],
+              });
+            }}
+          >
             <Text style={[styles.subText, styles.link]}> こちら</Text>
           </TouchableOpacity>
         </View>

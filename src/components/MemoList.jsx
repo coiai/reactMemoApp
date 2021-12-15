@@ -1,19 +1,29 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { Alert, View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 export default function MemoList() {
+  // navigation が props に渡るのはapp.jsxに書いているscreenだけなので
+  // useNavigationを呼び出す必要がある
+  const navigation = useNavigation();
   return (
-    <View style={styles.list}>
+    <TouchableOpacity
+      style={styles.list}
+      onPress={() => { navigation.navigate('MemoDetail'); }}
+    >
       <View style={styles.list__item}>
         <View style={styles.list__contentBox}>
           <Text style={styles.list__text}>買い物リスト</Text>
           <Text style={styles.list__date}>2021年6月30日</Text>
         </View>
-        <TouchableOpacity style={styles.list__trash}>
+        <TouchableOpacity
+          style={styles.list__trash}
+          onPress={() => { Alert.alert('削除する場合はOKを選択'); }}
+        >
           <Text>🗑</Text>
         </TouchableOpacity>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 }
 
@@ -39,5 +49,7 @@ const styles = StyleSheet.create({
   },
   list__trash: {
     alignItems: 'center',
+    height: 44,
+    width: 44,
   },
 });

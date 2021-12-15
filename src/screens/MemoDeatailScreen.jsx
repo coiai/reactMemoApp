@@ -3,13 +3,12 @@ import {
   View, Text, TextInput, ScrollView, KeyboardAvoidingView, StyleSheet,
 } from 'react-native';
 
-import AppBar from '../components/AppBar';
 import CircleButton from '../components/CircleButton';
 
-export default function MemoDetailScreen() {
+export default function MemoDetailScreen(props) {
+  const { navigation } = props;
   return (
     <KeyboardAvoidingView behavior="hight" style={styles.container}>
-      <AppBar />
       <ScrollView>
         <View style={styles.titleBox}>
           <TextInput multiline value="買い物リスト買い物リスト買い物リスト買い物リスト" style={styles.titleBox__title} />
@@ -19,7 +18,7 @@ export default function MemoDetailScreen() {
           <TextInput value="買い物リスト" multiline style={styles.contentBox__text} />
         </View>
       </ScrollView>
-      <CircleButton>✏️</CircleButton>
+      <CircleButton onPress={() => { navigation.navigate('MemoCreate'); }}>✏️</CircleButton>
     </KeyboardAvoidingView>
   );
 }
