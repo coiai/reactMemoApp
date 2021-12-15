@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   View, Text, TextInput, KeyboardAvoidingView, StyleSheet, TouchableOpacity
 } from 'react-native';
@@ -7,12 +7,37 @@ import Button from '../components/Button';
 
 export default function SifnUpScreen(props) {
   const { navigation } = props;
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   return (
     <KeyboardAvoidingView style={styles.container}>
       <View style={styles.main}>
         <Text style={styles.title}>アカウント登録</Text>
-        <TextInput style={styles.input} value="メールアドレス" />
-        <TextInput style={styles.input} value="パスワード" />
+        <TextInput
+          style={styles.input}
+          value={email}
+          // onChangeText はコールバック関数として入力した文章をTextに入れられる
+          // コールバック関数 イベントが起こるたびに実行される関数のこと
+          onChangeText={(text) => { setEmail(text); }}
+          // 最初を大文字にしない
+          autoCapitalize="None"
+          // キーボードの見た目が変わる @マーク付きのキーボードが出る
+          keyboardType="email-address"
+          // プレースホルダーの実装
+          placeholder="メールアドレス"
+          // iOSではキーチェーンから取ってきてくれる
+          textContentType="emailAddress"
+        />
+        <TextInput
+          style={styles.input}
+          value={password}
+          onChangeText={(text) => { setPassword(text); }}
+          placeholder="パスワード"
+          // type="password"の実装
+          secureTextEntry
+          // iOSではキーチェーンから取ってきてくれる
+          textContentType="password"
+        />
         <View style={styles.button_position} onPress={() => { navigation.navigate('Login'); }}>
           <Button
             onPress={() => {
