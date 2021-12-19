@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Alert, View, Text, TextInput, KeyboardAvoidingView, StyleSheet, TouchableOpacity
 } from 'react-native';
-import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
+import { getAuth, signInWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth';
 
 import Button from '../components/Button';
 
@@ -11,6 +11,21 @@ export default function LoginScreen(props) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const auth = getAuth();
+
+  // ログイン状態の監視
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        navigation.reset({
+          index: 0,
+          routes: [{ name: 'MemoList' }],
+        });
+      }
+    });
+    // onAuthStateChangedで帰ってきたものを再度実行すると監視状態のキャンセルが起こるらしい
+    // useEffect のリターンは画面が消える瞬間に実行されるらしい
+    return unsubscribe;
+  }, []);
 
   const handlePress = () => {
     signInWithEmailAndPassword(auth, email, password)

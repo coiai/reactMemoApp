@@ -21,7 +21,7 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="SignUp"
+        initialRouteName="LoginScreen"
         screenOptions={{
           headerStyle: { backgroundColor: 'black' },
           headerTitleStyle: { color: 'white' },
