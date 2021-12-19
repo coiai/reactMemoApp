@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import {
-  View, Text, TextInput, KeyboardAvoidingView, StyleSheet, TouchableOpacity
+  Alert, View, Text, TextInput, KeyboardAvoidingView, StyleSheet, TouchableOpacity
 } from 'react-native';
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 
 import Button from '../components/Button';
 
@@ -9,6 +10,28 @@ export default function LoginScreen(props) {
   const { navigation } = props;
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const auth = getAuth();
+
+  const handlePress = () => {
+    signInWithEmailAndPassword(auth, email, password)
+    // コールバック関数
+      .then((userCredential) => {
+        const { user } = userCredential;
+        console.log(user.uid);
+        navigation.reset({
+          index: 0,
+          routes: [{ name: 'MemoList' }],
+        });
+      })
+      // エラーだった時
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log(errorCode, errorMessage);
+        Alert.alert(errorCode);
+      });
+  };
+
   return (
     <KeyboardAvoidingView style={styles.container}>
       <View style={styles.main}>
@@ -20,7 +43,7 @@ export default function LoginScreen(props) {
           // コールバック関数 イベントが起こるたびに実行される関数のこと
           onChangeText={(text) => { setEmail(text); }}
           // 最初を大文字にしない
-          autoCapitalize="None"
+          autoCapitalize="none"
           // キーボードの見た目が変わる @マーク付きのキーボードが出る
           keyboardType="email-address"
           // プレースホルダーの実装
@@ -42,12 +65,7 @@ export default function LoginScreen(props) {
           <Button
             // 以下の書き方で履歴をリセットする
             // 履歴の上書きを起こしている
-            onPress={() => {
-              navigation.reset({
-                index: 0,
-                routes: [{ name: 'MemoList' }],
-              });
-            }}
+            onPress={handlePress}
           >
             ログイン
           </Button>

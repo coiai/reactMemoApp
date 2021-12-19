@@ -1,18 +1,23 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator, cardStyleInterPolator } from '@react-navigation/native-stack';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { CardStyleInterpolators } from '@react-navigation/stack';
+import { getApps, initializeApp } from 'firebase/app';
 
+import { firebaseConfig } from './env';
 import MemoListScreen from './src/screens/MemoListScreen';
 import MemoDetailScreen from './src/screens/MemoDeatailScreen';
 import MemoCreateScreen from './src/screens/MemoCreateScreen';
 import LoginScreen from './src/screens/LoginScreen';
 import SignUpScreen from './src/screens/SignUpScreen';
-import { CardStyleInterpolators } from '@react-navigation/stack';
 
 const Stack = createNativeStackNavigator();
-
-// eslint-disable-next-line react/function-component-definition
 export default function App() {
+  // Initialize Firebase
+  if (getApps().length < 1) {
+    initializeApp(firebaseConfig);
+    // Initialize other firebase products here
+  }
   return (
     <NavigationContainer>
       <Stack.Navigator
@@ -40,14 +45,14 @@ export default function App() {
           options={{
             // 登録画面への遷移は奥行きに対してのアニメーションになる 詳しくは公式ドキュメントにて
             // https://reactnavigation.org/docs/stack-navigator
-            cardStyleInterPolator: CardStyleInterpolators.forFadeFromBottomAndroid,
+            cardStyleInterpolator: CardStyleInterpolators.forFadeFromBottomAndroid,
           }}
         />
         <Stack.Screen
           name="SignUp"
           component={SignUpScreen}
           options={{
-            cardStyleInterPolator: CardStyleInterpolators.forFadeFromBottomAndroid,
+            cardStyleInterpolator: CardStyleInterpolators.forFadeFromBottomAndroid,
           }}
         />
       </Stack.Navigator>
