@@ -11,6 +11,8 @@ import MemoCreateScreen from './src/screens/MemoCreateScreen';
 import LoginScreen from './src/screens/LoginScreen';
 import SignUpScreen from './src/screens/SignUpScreen';
 
+require("firebase/firestore");
+
 const Stack = createNativeStackNavigator();
 export default function App() {
   // Initialize Firebase
