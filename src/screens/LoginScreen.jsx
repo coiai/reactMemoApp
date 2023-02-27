@@ -10,10 +10,10 @@ export default function LoginScreen(props) {
   const { navigation } = props;
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const auth = getAuth();
-
+  
   // ログイン状態の監視
   useEffect(() => {
+    const auth = getAuth();
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         navigation.reset({

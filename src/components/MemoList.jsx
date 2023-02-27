@@ -14,7 +14,8 @@ export default function MemoList(props) {
       <TouchableOpacity
         key={item.id}
         style={styles.list}
-        onPress={() => { navigation.navigate('MemoDetail'); }}
+        // , { id: item.id }) を書くだけで下の階層に引き継げる
+        onPress={() => { navigation.navigate('MemoDetail', { id: item.id }); }}
       >
         <View style={styles.list__item}>
           <View style={styles.list__contentBox}>

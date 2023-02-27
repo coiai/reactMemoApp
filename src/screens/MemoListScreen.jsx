@@ -11,18 +11,18 @@ import LogOutButton from '../components/LogoutButton';
 export default function MemoListScreen(props) {
   const { navigation } = props;
   const [memos, setMemos] = useState([]);
-  const db = getFirestore();
-  // 現在のユーザー情報を取得
-  const auth = getAuth();
-  const user = auth.currentUser;
-
+  
   useEffect(() => {
     navigation.setOptions({
       headerRight: () => <LogOutButton />,
     });
   }, []);
-
+  
   useEffect(() => {
+    // 現在のユーザー情報を取得
+    const db = getFirestore();
+    const auth = getAuth();
+    const user = auth.currentUser;
     const q = collection(db, `users/${user.uid}/memos`);
     // このif文は万が一ログインのセッションが切れてしまった時の対策
     let unsubscribe = () => {};
